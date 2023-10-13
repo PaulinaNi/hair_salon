@@ -1,73 +1,37 @@
+import "./calendar.style.css"
+
 export default function Calendar() {
 
-const todayDate = new Date().toString()
-const thisMonth = new Date().getMonth()
-const todayDay = new Date().getDay()
-const dayOfMonth = new Date().getDate()
+  const todayDate = new Date()
+  const thisMonth = todayDate.getMonth()
+  const lastDayOfMonth = new Date(todayDate.getFullYear(), todayDate.getMonth()+1,0).getDate()
+  const todayDay = todayDate.getDay()
+  const dayOfMonth = todayDate.getDate()
 
-let displayMonth = (month) => {
- switch(month){
-  case 0:
-   return "January"
-   break
-   case 1:
-    return "February"
-   break
-   case 2:
-    return "March"
-   break
-   case 3:
-    return "April"
-   break
-   case 4:
-    return "May"
-   break
-   case 5:
-    return "June"
-   break
-   case 6:
-    return "July"
-   break
-   case 7:
-    return "August"
-   break
-   case 8:
-    return "September"
-   break
-   case 9:
-    return "October"
-   break
-   case 10:
-    return "November"
-   break
-   case 11:
-    return "December"
-   break
- }
-}
+  const monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const daysArray = []
 
- return (
-  <>
-   <p>Calendar</p>
-   <table>
-    <thead>
-     <tr>
-      <th>{displayMonth(thisMonth)}</th>
-     </tr>
-    </thead>
-    <tbody>
-     <tr>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
-      <th>Sunday</th>
-     </tr>
-     <tr></tr>
-    </tbody>
-   </table>
-  </>
- )
+  for (let i = 1; i <= lastDayOfMonth; i++) {
+    daysArray.push(i)
+  }
+
+  return (
+    <div className="calendarContainer" >
+      <h2 className="month">{monthsArray[thisMonth]}</h2>
+
+      <div className="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+
+      <div className="days">
+        {daysArray.map(day => <div className="day" key={day}>{day}</div> )}
+      </div>
+    </div>
+  )
 }

@@ -1,3 +1,17 @@
+:root{
+  --main-dark1: #103025;
+  --main-dark2: #2E4E43;
+  --main-dark3: #718778;
+  --main-dark4: #C4D0CE;
+  --main-light1: #B6AEAB;
+  --main-light2: #DED6D3;
+}
+
 *{
   box-sizing: border-box;
+}
+
+body{
+  background-color: var(--main-dark4);
+  color: var(--main-dark1);
 }

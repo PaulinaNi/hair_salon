@@ -1,0 +1,30 @@
+.calendarContainer {
+ margin: 0 5%;
+ padding-bottom: 1rem;
+ width: 90%;
+ background-color: var(--main-dark2);
+ color: var(--main-light2);
+ text-align: center;
+}
+
+.month{
+ background-color: var(--main-dark1);
+ padding: 1rem 0;
+}
+
+.weekdays {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ color: var(--main-light1);
+}
+
+.days {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.day {
+ width: calc(100%/7);
+ padding: 1rem;
+}
