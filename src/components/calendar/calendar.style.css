@@ -1,19 +1,30 @@
 .calendarContainer {
  margin: 0 5%;
- padding-bottom: 1rem;
  width: 90%;
  background-color: var(--main-dark2);
  color: var(--main-light2);
  text-align: center;
 }
 
-.month{
+.calendarNavigation {
+ display: flex;
+ padding: 0.5rem;
+ flex-direction: row;
+ justify-content: space-between;
+ color: var(--main-dark1);
+ background-color: var(--main-light1);
+}
+
+.month {
  background-color: var(--main-dark1);
- padding: 1rem 0;
+ padding: 1.5rem 0;
+ margin: 0;
+ font-size: 32px;
 }
 
 .weekdays {
  display: flex;
+ padding-top: 1rem;
  flex-direction: row;
  justify-content: space-around;
  color: var(--main-light1);
@@ -26,5 +37,18 @@
 
 .day {
  width: calc(100%/7);
- padding: 1rem;
+ padding: 0.5rem;
+ border: 0.35rem solid transparent;
+}
+
+.prev-next {
+ color: rgb(95, 95, 95);
+}
+
+.avaliableForBooking {
+ cursor: pointer;
+}
+
+.avaliableForBooking:hover {
+ border: 0.35rem solid var(--main-dark1);
 }
