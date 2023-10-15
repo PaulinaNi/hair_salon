@@ -1,4 +1,4 @@
-:root{
+:root {
   --main-dark1: #103025;
   --main-dark2: #2E4E43;
   --main-dark3: #718778;
@@ -7,11 +7,22 @@
   --main-light2: #DED6D3;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: var(--main-dark4);
   color: var(--main-dark1);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Abril Fatface', serif;
+  font-size: 2em;
+  text-align: center;
 }

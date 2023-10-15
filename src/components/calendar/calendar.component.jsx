@@ -2,14 +2,16 @@ import { useState } from "react"
 import "./calendar.style.css"
 
 export default function Calendar() {
-
-  const [displayMonth, setDisplayMonth] = useState(new Date())
-
   const todayDate = new Date()
-  const thisMonth = todayDate.getMonth()
-  const lastDayOfMonth = new Date(todayDate.getFullYear(), todayDate.getMonth() + 1, 0)
-  const firstDayofMonth = new Date(todayDate.getFullYear(), todayDate.getMonth(), 1).getDay()
-  const lastDayOfPrevMonth = new Date(todayDate.getFullYear(), todayDate.getMonth(), 0).getDate()
+
+  const [displayMonth, setDisplayMonth] = useState(todayDate)
+
+
+  const thisMonth = displayMonth.getMonth()
+  const thisYear = displayMonth.getFullYear()
+  const lastDayOfMonth = new Date(displayMonth.getFullYear(), displayMonth.getMonth() + 1, 0)
+  const firstDayofMonth = new Date(displayMonth.getFullYear(), displayMonth.getMonth(), 1).getDay()
+  const lastDayOfPrevMonth = new Date(displayMonth.getFullYear(), displayMonth.getMonth(), 0).getDate()
 
   const monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const daysArray = []
@@ -38,13 +40,16 @@ export default function Calendar() {
   }
 
   const toNextMonthHandler = (prevOrNext) => {
-    prevOrNext === 'prev' ? todayDate.setMonth(todayDate.getMonth() - 1) : todayDate.setMonth(todayDate.getMonth() + 1)
-    console.log(todayDate)
+    if (prevOrNext === 'prev') {
+      setDisplayMonth(new Date(displayMonth.getFullYear(), displayMonth.getMonth() - 1, displayMonth.getDate()))
+    } else if (prevOrNext === 'next') {
+      setDisplayMonth(new Date(displayMonth.getFullYear(), displayMonth.getMonth() + 1, displayMonth.getDate()))
+    }
   }
 
   return (
     <div className="calendarContainer" >
-      <h2 className="month">{monthsArray[thisMonth]}</h2>
+      <h2 className="month">{monthsArray[thisMonth]} {thisYear}</h2>
       <div className="calendarNavigation" >
         <div onClick={() => toNextMonthHandler('prev')}>Previous Month</div>
         <div onClick={() => toNextMonthHandler('next')}>Next Month</div>
