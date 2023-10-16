@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+
+import NavBar from './components/navBar/navBar.component.jsx'
 
 //Pages 
 import AboutMePage from './pages/aboutMePage/aboutMe.page.jsx'
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
   {
     path: "/treatments",
     element: <TreatmentsPage />,
-  },  
+  },
   {
     path: "/location",
     element: <LocationPage />,
@@ -53,6 +55,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <NavBar />
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
